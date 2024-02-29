@@ -6,7 +6,7 @@ import os  # Library for operating system dependent functionality
 print("Initializing...")
 
 # Path to the video file to be processed
-video_path = 'logan_throwingLeft.mp4'
+video_path = 'logan_throwingLeft_4k-60.mp4'
 # Create a VideoCapture object
 cap = cv2.VideoCapture(video_path)
 # Get the width and height of frames in the video
@@ -15,7 +15,7 @@ frame_height = int(cap.get(4))
 
 # Define the codec and create a VideoWriter object
 fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-out = cv2.VideoWriter('face_identification_output.mp4',
+out = cv2.VideoWriter('face_tracking_4k-60.mp4',
                       fourcc, 30.0, (frame_width, frame_height))
 
 print("Loading training images...")
@@ -24,11 +24,11 @@ known_face_encodings = []
 known_face_names = []
 
 # Load training images from the 'training' directory
-if os.path.exists('training'):
-    for filename in os.listdir('training'):
+if os.path.exists('training_images'):
+    for filename in os.listdir('training_images'):
         if filename.endswith('.jpg'):
             print(f"Processing {filename}...")
-            image_path = os.path.join('training', filename)
+            image_path = os.path.join('training_images', filename)
             # Load an image file to find face locations
             image = face_recognition.load_image_file(image_path)
             # Get face encodings for any faces in the uploaded image
