@@ -1,0 +1,1 @@
+# Simple facial recognition application
